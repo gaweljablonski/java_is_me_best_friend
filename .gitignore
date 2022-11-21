@@ -1,3 +1,6 @@
 .idea
 out
 *.xml
+.metadata
+.settings
+*.iml
