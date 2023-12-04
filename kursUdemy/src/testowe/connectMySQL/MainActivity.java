@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class MainActivity {
     public static void main(String[] args) {
+//        String host = "jdbc:mysql://localhost:3306/employee101";
         String host = "jdbc:mysql://localhost:3306/employee101";
         String username = "root";
         String password = "";
@@ -13,8 +14,8 @@ public class MainActivity {
 
         try {
             // load and register JDBC driver for MySQL
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.mariadb.jdbc.Driver");
             // Establishing a connection to the database
             connection = DriverManager.getConnection(host, username, password);
             System.out.println("Connected to the database!");
@@ -56,5 +57,13 @@ public class MainActivity {
                 System.err.println("Error closing the connection: " + e.getMessage());
             }
         }
+
+        String db_class = null;
+        try {
+            db_class = DriverManager.getConnection(host, username, password).getClass().getName();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(db_class);
     }
 }
