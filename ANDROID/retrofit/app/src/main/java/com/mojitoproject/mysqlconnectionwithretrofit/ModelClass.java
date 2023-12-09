@@ -1,17 +1,17 @@
 package com.mojitoproject.mysqlconnectionwithretrofit;
 
 public class ModelClass {
-    private int id;
-    private String fname, lname;
+    private int id, Percentage;
+    private String Name, Description, Ingredients;
 
-    //constuctor
-    public ModelClass(int id, String fname, String lname) {
+    public ModelClass(int id, int percentage, String name, String description, String ingredients) {
         this.id = id;
-        this.fname = fname;
-        this.lname = lname;
+        Percentage = percentage;
+        Name = name;
+        Description = description;
+        Ingredients = ingredients;
     }
 
-    //setters and getters
     public int getId() {
         return id;
     }
@@ -20,19 +20,35 @@ public class ModelClass {
         this.id = id;
     }
 
-    public String getFname() {
-        return fname;
+    public int getPercentage() {
+        return Percentage;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setPercentage(int percentage) {
+        Percentage = percentage;
     }
 
-    public String getLname() {
-        return lname;
+    public String getName() {
+        return Name;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getIngredients() {
+        return Ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        Ingredients = ingredients;
     }
 }
