@@ -2,10 +2,12 @@ package com.mojitoproject.mysqlconnectionwithretrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -19,9 +21,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private EditText NameET, DescriptionET, IngredientsET, PercentageET;
-    private Button add;
+    private Button add, viewdata;
     private MyApi myApi;
     private String BaseUrl = "https://mojitoproject.000webhostapp.com/connection_ftp/";
+
+    private TextView nameTV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,18 +43,38 @@ public class MainActivity extends AppCompatActivity {
                 insertData();
             }
         });
+
+        viewdata = (Button) findViewById(R.id.view);
+        viewdata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intent);
+            }
+        });
+
     }
     private void insertData() {
+        int percentage = 0;
         String name = NameET.getText().toString();
         String description = DescriptionET.getText().toString();
         String ingredients = IngredientsET.getText().toString();
-        int percentage = Integer.parseInt(PercentageET.getText().toString());
+        try {
+             percentage = Integer.parseInt(PercentageET.getText().toString());
+        } catch (NumberFormatException e) {
+//            throw new RuntimeException(e);
+            Toast.makeText(MainActivity.this, "Data not correct", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        try {
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(BaseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        myApi = retrofit.create(MyApi.class);
-        Call<ModelClass>modelClassCall = myApi.insertData(name, description, ingredients, percentage);
+
+            Retrofit retrofit = new Retrofit.Builder().baseUrl(BaseUrl)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            myApi = retrofit.create(MyApi.class);
+            Call<ModelClass> modelClassCall = myApi.insertData(name, description, ingredients, percentage);
+
         modelClassCall.enqueue(new Callback<ModelClass>() {
             @Override
             public void onResponse(Call<ModelClass> call, Response<ModelClass> response) {
@@ -66,5 +90,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Failed to inserted", Toast.LENGTH_SHORT).show();
             }
         });
+        } catch (Exception e) {
+//            throw new RuntimeException(e);
+            Toast.makeText(MainActivity.this, "Data not correct", Toast.LENGTH_SHORT).show();
+        }
     }
+
+
 }
