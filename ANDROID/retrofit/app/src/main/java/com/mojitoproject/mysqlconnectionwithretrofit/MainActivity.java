@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewdata = (Button) findViewById(R.id.view);
         viewdata.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);

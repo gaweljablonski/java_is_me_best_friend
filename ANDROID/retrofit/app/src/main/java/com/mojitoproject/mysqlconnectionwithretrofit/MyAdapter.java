@@ -34,10 +34,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
         try {
             ModelClass modelClass = arrayList.get(position);
-            holder.NameT.setText("nazwa:"+modelClass.getName());
+            holder.NameT.setText("nazwa: "+modelClass.getName());
             holder.DescriptionT.setText("opis:\n"+modelClass.getDescription());
             holder.IngredientsT.setText("skladniki:\n"+modelClass.getIngredients());
-            holder.PercentageT.setText("%:"+modelClass.getPercentage());
+            holder.PercentageT.setText("%: "+modelClass.getPercentage());
         } catch (Exception e) {
 //            throw new RuntimeException(e);
         }
