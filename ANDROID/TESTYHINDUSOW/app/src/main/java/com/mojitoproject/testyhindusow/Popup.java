@@ -61,27 +61,27 @@ public class Popup extends PopupWindow {
 
 // setOnTouchListener is to add drag and drop the popup window.
 // If you didn't want, you can remove it.
-//        popupView.setOnTouchListener(new OnTouchListener() {
-//
-//            public boolean onTouch(View arg0, MotionEvent motionEvent) {
-//                switch (motionEvent.getAction()) {
-//
-//                    case MotionEvent.ACTION_DOWN:
-//                        dx = (int) motionEvent.getRawX();
-//                        dy = (int) motionEvent.getRawY();
-//                        break;
-//
-//                    case MotionEvent.ACTION_MOVE:
-//                        int x = (int) motionEvent.getRawX();
-//                        int y = (int) motionEvent.getRawY();
-//                        int left = (x - dx);
-//                        int top = (y - dy);
-//                        update(left, top, -1, -1);
-//                        break;
-//                }
-//                return true;
-//            }
-//        });
+        popupView.setOnTouchListener(new OnTouchListener() {
+
+            public boolean onTouch(View arg0, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+
+                    case MotionEvent.ACTION_DOWN:
+                        dx = (int) motionEvent.getRawX();
+                        dy = (int) motionEvent.getRawY();
+                        break;
+
+                    case MotionEvent.ACTION_MOVE:
+                        int x = (int) motionEvent.getRawX();
+                        int y = (int) motionEvent.getRawY();
+                        int left = (x - dx);
+                        int top = (y - dy);
+                        update(left, top, -1, -1);
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     public void show(View v) {

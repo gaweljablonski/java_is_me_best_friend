@@ -4,6 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        String a, b;
+        a = " ";
+        b = "  ";
+        System.out.println(a.equals(b));
+
+
 
 //        int zmienna = 10;
 //        int[] tab = new int[15];
@@ -29,15 +35,15 @@ public class Main {
 //        }
 //
 
-        int[] liczby = {1, 2, 3, 4, 5, 6};
-
-        int suma = 0;
-
-        for(int i = 0; i < liczby.length; i++){
-            suma = suma + liczby[i];
-
-        }
-        System.out.println(suma);
+//        int[] liczby = {1, 2, 3, 4, 5, 6};
+//
+//        int suma = 0;
+//
+//        for(int i = 0; i < liczby.length; i++){
+//            suma = suma + liczby[i];
+//
+//        }
+//        System.out.println(suma);
 
     }
 

@@ -26,7 +26,7 @@ public class ProgramowanieObiektowe {
         System.out.println();
         butelka[0].wlej(7.4);
         System.out.println(butelka[4].getIleMaLitrow());
-        butelka[4].przelej(5.5,butelka[3]);
+        butelka[4].przelej(55.5,butelka[3]);
 
 
 //        butelka[2].wlejDoPelna();
