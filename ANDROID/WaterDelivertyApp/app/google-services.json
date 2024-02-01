@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "619916664967",
+    "project_id": "waterdelivertyapp",
+    "storage_bucket": "waterdelivertyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619916664967:android:6829ca8c2635be1c035822",
+        "android_client_info": {
+          "package_name": "com.mojitoproject.waterdelivertyapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADKci0SaxdWxGAF2aQQnpfxmHyRc0os_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
